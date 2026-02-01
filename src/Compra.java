@@ -1,14 +1,21 @@
-public class Cartao {
+public class Compra {
 
-    private int limite;
-    private String bandeira;
+    private int valorCompra;
+    private String compra;
 
-
-    public int getLimite() {
-        return limite;
+    public int getValorCompra() {
+        return valorCompra;
     }
 
-    public String getBandeira() {
-        return bandeira;
+    public void setValorCompra(int valorCompra) {
+        this.valorCompra = valorCompra;
+    }
+
+    public String getCompra() {
+        return compra;
+    }
+
+    public void setCompra(String compra) {
+        this.compra = compra;
     }
 }
