@@ -1,21 +1,33 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Cartao {
+    private double saldo;
+    private double limite;
+    private List<Compra> compras;
 
-    private int valorCompra;
-    private String compra;
-
-    public int getValorCompra() {
-        return valorCompra;
+    public Cartao(double limite) {
+        this.limite = limite;
+        this.saldo = limite;
+        this.compras = new ArrayList<>();
     }
 
-    public void setValorCompra(int valorCompra) {
-        this.valorCompra = valorCompra;
+
+    public boolean lancaCompra(Compra compra){
+        if (this.saldo > compra.getValor());{
+
+
+
+        }
+        return false;
     }
 
-    public String getCompra() {
-        return compra;
+
+    public double getLimite() {
+        return limite;
     }
 
-    public void setCompra(String compra) {
-        this.compra = compra;
+    public double getSaldo() {
+        return saldo;
     }
 }
