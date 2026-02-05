@@ -44,7 +44,7 @@ public class Main {
         }
 
 
-        Compra compra1 = new Compra();
+        Cartao compra1 = new Cartao();
         compra1.setValorCompra(leitor.nextInt());
 
 

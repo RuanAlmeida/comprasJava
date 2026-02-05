@@ -1,4 +1,4 @@
-public class Compra {
+public class Cartao {
 
     private int valorCompra;
     private String compra;
