@@ -1,3 +1,5 @@
+package Modelos;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -5,6 +7,7 @@ public class Cartao {
     private double saldo;
     private double limite;
     private List<Compra> compras;
+
 
     public Cartao(double limite) {
         this.limite = limite;
@@ -14,10 +17,10 @@ public class Cartao {
 
 
     public boolean lancaCompra(Compra compra){
-        if (this.saldo > compra.getValor());{
-
-
-
+        if (this.saldo >= compra.getValor()){
+            this.saldo -= compra.getValor();
+            this.compras.add(compra);
+            return true;
         }
         return false;
     }
