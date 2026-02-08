@@ -1,6 +1,7 @@
-import Modelos.Compra;
 import Modelos.Cartao;
+import Modelos.Compra;
 
+import java.util.Collections;
 import java.util.Scanner;
 
 public class Principal {
@@ -10,29 +11,37 @@ public class Principal {
         double limite = leitura.nextDouble();
         Cartao cartao = new Cartao(limite);
 
-
-        // codigo prinicpal loop com while
-
         int sair = 1;
+        while(sair != 0) {
+            System.out.println("Digite a descrição da compra:");
+            String descricao = leitura.next();
 
-        while (sair != 1){
+            System.out.println("Digite o valor da compra:");
+            double valor = leitura.nextDouble();
 
-            System.out.println("Digite a descrição da compra: ");
-            String descrição = leitura.next();
+            Compra compra = new Compra(descricao, valor);
+            boolean compraRealizada = cartao.lancaCompra(compra);
 
-        System.out.println("Digite o valor da compra: ");
-        double valor = leitura.nextDouble();
-
-        Compra compra = new Compra(valor, descrição);
-        boolean compraRealizada = cartao.lancaCompra(compra);
-
-        if (compraRealizada){
-            System.out.println("Compra realizada!");
-            System.out.println("Digite 0 para sair ou 1 para continuar comprando");
-
-            sair = leitura.nextInt();
+            if (compraRealizada) {
+                System.out.println("Compra realizada!");
+                System.out.println("Digite 0 para sair ou 1 para continuar");
+                sair = leitura.nextInt();
+            } else {
+                System.out.println("Saldo insuficiente!");
+                sair = 0;
+            }
         }
-        }
 
+        System.out.println("***********************");
+        System.out.println("COMPRAS REALIZADAS:\n");
+        Collections.sort(cartao.getCompras());
+        for (Compra c : cartao.getCompras()) {
+            System.out.println(c.getDescricao() + " - " +c.getValor());
+        }
+        System.out.println("\n***********************");
+
+        System.out.println("\nSaldo do cartão: " +cartao.getSaldo());
     }
+
+
 }
